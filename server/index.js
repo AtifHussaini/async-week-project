@@ -1,8 +1,10 @@
 const port = process.env.PORT || 3000;
 const app = require('./app');
+const { db } = require('./db');
 
-app.listen(port, ()=> console.log(`listening on port ${port}`));
+const startServer = async () => {
+    await db.sync();
+    app.listen(port, ()=> console.log(`listening on port ${port}`));
+};
 
-app.get("/", (req, res) => {
-    res.send("Hello :)")
-  })
+startServer();
