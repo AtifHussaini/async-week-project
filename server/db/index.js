@@ -30,10 +30,10 @@ const Student = db.define("student", {
     image: {
         type: Sequelize.DataTypes.STRING,
         allowNull: false,
-        defaultValue: "anonymousPerson.png"
+        defaultValue: "/anonymousPerson.png"
     },
     gpa: {
-        type: Sequelize.DataTypes.INTEGER,
+        type: Sequelize.DataTypes.DECIMAL,
         allowNull: false,
         defaultValue: 0,
         validate: {
@@ -55,12 +55,13 @@ const Campus = db.define("campus", {
     },
     description: {
         type: Sequelize.DataTypes.TEXT,
-        allowNull: false
+        allowNull: true,
+        defaultValue: "A higher education institution that provides a range of undergraduate, graduate, and professional programs. Students at this university can choose from a wide variety of subjects to study, from the arts and humanities to the sciences and engineering."
     },
     image: {
         type: Sequelize.DataTypes.STRING,
-        allowNull: false,
-        defaultValue: "anonymousUniversity.jpeg"
+        allowNull: true,
+        defaultValue: "/anonymousUniversity.jpeg"
     }
 });
 
