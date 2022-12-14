@@ -10,12 +10,13 @@ const container = document.getElementById("root")
 const root = createRoot(container)
 
 root.render(
+        
         <Provider store={store}>
                 <Router>
                         <Main />
                 </Router>
         </Provider>
+        
 )
 
-
-//Do not understand by Router has red underline and why Router is not turning green. It used to.
+// 1. Do not understand by Router has red underline and why Router is not turning green. It used to.

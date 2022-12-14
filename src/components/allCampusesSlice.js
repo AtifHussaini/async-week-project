@@ -45,4 +45,4 @@ export const allCampusesSlice = createSlice({
 
 export const selectAllCampuses = (state) => state.allCampuses
 
-export default allCampusesSlice.reducer
+export default allCampusesSlice.reducer;

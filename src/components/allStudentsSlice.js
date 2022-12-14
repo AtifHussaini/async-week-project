@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Student } from "../../server/db";
 
 export const fetchAllStudentsAsync = createAsyncThunk("students-fetchAll", async () => {
     try {

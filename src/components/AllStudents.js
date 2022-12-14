@@ -35,22 +35,22 @@ const AllStudents = () => {
         console.log("Create student - clicked")
     }
 
-    const handleDelete = async (e) => {
+    // const handleDelete = async (e) => {
 
-        // const id = e.target.value
+    //     // const id = e.target.value
 
-        // dispatch(deleteStudentAsync({id}))
+    //     // dispatch(deleteStudentAsync({id}))
 
-        try {
-            const id = e.target.value
-            console.log(id)
-            const omit = await axios.delete('/api/students', {id})
-            return omit
-        } catch (err) {
-            console.log(err)
-        }
+        // try {
+        //     const id = e.target.value
+        //     console.log(id)
+        //     const omit = await axios.delete('/api/students', {id})
+        //     return omit
+        // } catch (err) {
+        //     console.log(err)
+        // }
 
-    }
+    // }
 
     return (
         <div>
@@ -64,7 +64,7 @@ const AllStudents = () => {
                     <h3>GPA: {student.gpa}</h3>
                     <Link to={`/students/${student.id}`}><img src={student.image} style={{width: 200, height: 300}} /></Link>
                     <br></br>
-                    <button value={student.id} onClick={handleDelete}>DELETE</button>
+                    {/* <button value={student.id} onClick={handleDelete}>DELETE</button> */}
                 </div>
                 )
            })}

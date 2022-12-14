@@ -42,6 +42,7 @@ router.delete('/', async (req, res, next) => {
         console.log("HELLOOOOOOOO")
         await response.destroy()
         res.send(response)
+        next()
     } catch (err) {
         console.log(err)
     }

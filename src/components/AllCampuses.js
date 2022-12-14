@@ -62,5 +62,3 @@ const AllCampuses = () => {
 }
 
 export default AllCampuses;
-
-// 1. Once you add a campus, page refreshes? Although preventDefault is applied
