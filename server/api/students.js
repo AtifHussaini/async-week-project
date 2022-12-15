@@ -49,6 +49,19 @@ router.delete('/:id', async (req, res, next) => {
 
 router.put('/:id', async (req, res, next) => {
     try {
+        
+        const id = req.params.id
+        const row = await Student.findByPk(id)
+        const updateRow = row.update({campusId: null})
+        res.send(updateRow)
+        next()
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+router.put('/:id', async (req, res, next) => {
+    try {
         const id = req.params.id
         const row = await Student.findByPk(id)
         const newRow = row.update(req.body)

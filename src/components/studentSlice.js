@@ -49,6 +49,14 @@ export const singleStudentSlice = createSlice({
         builder.addCase(fetchSingleStudentAsync.fulfilled, (state, action) => {
             return action.payload
         })
+
+        builder.addCase(deleteStudentAsync.fulfilled, (state, action) => {
+            return action.payload
+        })
+
+        builder.addCase(updateStudentAsync.fulfilled, (state, action) => {
+            return action.payload
+        })
     }
 });
 

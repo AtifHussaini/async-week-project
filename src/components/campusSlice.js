@@ -10,7 +10,7 @@ export const fetchSingleCampusAsync = createAsyncThunk("campus/fetchOne", async 
     }
 })
 
-export const deleteCampusAsycn = createAsyncThunk("campus/delete", async (id) => {
+export const deleteCampusAsync = createAsyncThunk("campus/delete", async (id) => {
     try {
         const { data } = await axios.delete(`/api/campuses/${id}`)
         return data
@@ -44,6 +44,14 @@ export const singleCampusSlice = createSlice({
 
     extraReducers: (builder) => {
         builder.addCase(fetchSingleCampusAsync.fulfilled, (state, action) => {
+            return action.payload
+        })
+
+        builder.addCase(deleteCampusAsync.fulfilled, (state, action) => {
+            return action.payload
+        })
+
+        builder.addCase(updateCampusAsync.fulfilled, (state, action) => {
             return action.payload
         })
     }
