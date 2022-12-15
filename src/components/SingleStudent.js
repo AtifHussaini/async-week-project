@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
+import React, { useEffect , useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSingleStudent, fetchSingleStudentAsync, deleteStudentAsync } from './studentSlice'
+import { selectSingleStudent, fetchSingleStudentAsync, deleteStudentAsync, updateStudentAsync } from './studentSlice'
 import { useParams, Link } from "react-router-dom"
+import { fetchAllCampusesAsync, selectAllCampuses } from './allCampusesSlice';
 
 const SingleStudent = () => {
 
@@ -9,17 +10,38 @@ const SingleStudent = () => {
     const dispatch = useDispatch()
 
     const student = useSelector(selectSingleStudent)
+    const campuses = useSelector(selectAllCampuses)
+
     const { firstName, lastName, email, gpa, image, campus } = student
+
+    const [newFirstName, setNewFirstName] = useState("")
+    const [newLastName, setNewLastName] = useState("")
+    const [newEmail, setNewEmail] = useState("")
+    const [newImage, setNewImage] = useState("")
+    const [newGpa, setNewGpa] = useState("")
+    const [newOption, setNewOption] = useState("")
 
     useEffect(() => {
        
        dispatch(fetchSingleStudentAsync(id))
+       dispatch(fetchAllCampusesAsync())
 
     }, [])
 
     const handleDelete = async (e) => {
         const id = e.target.value
         dispatch(deleteStudentAsync(id))
+    }
+
+    const handleSubmit = async () => {
+        // e.preventDefault()
+        console.log(newOption)
+        dispatch(updateStudentAsync({id, newFirstName, newLastName, newEmail, newImage, newGpa, newOption}))
+
+    }
+
+    const handleClick = () => {
+        console.log("update button clicked")
     }
 
     return (
@@ -32,6 +54,26 @@ const SingleStudent = () => {
                 <br></br>
                 <Link to="/students"><button value={student.id} onClick={handleDelete}>DELETE</button></Link>
             </div>
+            <h1>UPDATE STUDENT</h1>
+            <form method="update" action={`/students/${id}`} onSubmit={handleSubmit}>
+                <input value={newFirstName} placeholder={firstName} onChange={(e) => setNewFirstName(e.target.value)}></input>
+                <br></br>
+                <input value={newLastName} placeholder={lastName} onChange={(e) => setNewLastName(e.target.value)}></input>
+                <br></br>
+                <input value={newEmail} placeholder={email} onChange={(e) => setNewEmail(e.target.value)}></input>
+                <br></br>
+                <input value={newImage} placeholder={image} onChange={(e) => setNewImage(e.target.value)}></input>
+                <br></br>
+                <input value={newGpa} placeholder={gpa} onChange={(e) => setNewGpa(e.target.value)}></input>
+                <br></br>
+                <select onChange={(e) => setNewOption(e.target.value)}>
+                    <option value="">Choose Here</option>
+                    {campuses.map(campus => {
+                        return <option key={campus.id} value={campus.id}>{campus.name}</option>
+                    })} 
+                </select>
+                <button type="submit" onClick={handleClick}>Update</button>
+            </form>
         </div>
     );
 }

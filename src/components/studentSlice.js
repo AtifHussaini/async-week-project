@@ -20,6 +20,22 @@ export const deleteStudentAsync = createAsyncThunk("student-delete", async (id) 
     }
 })
 
+export const updateStudentAsync = createAsyncThunk("student-update", async ({id, newFirstName, newLastName, newEmail, newImage, newGpa, newOption}) => {
+    try {
+        const { data } = await axios.put(`/api/students/${id}`, {
+            firstName: newFirstName,
+            lastName: newLastName,
+            email: newEmail,
+            image: newImage,
+            gpa: newGpa,
+            campusId: newOption
+        })
+        return data
+    } catch (err) {
+        console.log(err)
+    }
+})
+
 export const singleStudentSlice = createSlice({
 
     name: "singleStudent",

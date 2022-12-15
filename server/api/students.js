@@ -47,4 +47,16 @@ router.delete('/:id', async (req, res, next) => {
     }
 })
 
+router.put('/:id', async (req, res, next) => {
+    try {
+        const id = req.params.id
+        const row = await Student.findByPk(id)
+        const newRow = row.update(req.body)
+        res.send(newRow)
+        next()
+    } catch (err) {
+        console.log(err)
+    }
+})
+
 module.exports = router;

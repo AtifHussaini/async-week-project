@@ -25,13 +25,14 @@ const SingleCampus = () => {
         dispatch(deleteCampusAsycn(id))
     }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
+    const handleSubmit = async () => {
+        // e.preventDefault()
         
         dispatch(updateCampusAsync({ id, newName, newAddress, newDescription, newImage}))
     }
 
     const handleClick = () => {
+        // e.preventDefault()
         console.log("button clicked")
     }
 
@@ -53,7 +54,7 @@ const SingleCampus = () => {
                 <br></br>
                 <input value={newDescription} placeholder={description} onChange={(e) => setNewDescription(e.target.value)}></input>
                 <br></br>
-                <input value={newImage} maxLength="1000000" placeholder={image} onChange={(e) => setNewImage(e.target.value)}></input>
+                <input value={newImage} placeholder={image} onChange={(e) => setNewImage(e.target.value)}></input>
                 <br></br>
                 <button type="submit" onClick={handleClick}>Update</button>
             </form>
