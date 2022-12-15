@@ -44,8 +44,6 @@ const AllCampuses = () => {
                             <h3>{campus.address}</h3>
                             <p>{campus.description}</p>
                             <img src={campus.image} style={{width:200, height:200}} />
-                            <br></br>
-                            <button>DELETE</button>
                         </div>
                     )
             })}

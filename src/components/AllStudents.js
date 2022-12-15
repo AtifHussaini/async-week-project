@@ -21,7 +21,7 @@ const AllStudents = () => {
         dispatch(fetchAllStudentsAsync())
         dispatch(fetchAllCampusesAsync())
 
-    }, [dispatch])
+    }, [])
 
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")

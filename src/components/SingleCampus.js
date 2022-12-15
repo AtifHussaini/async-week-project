@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSingleCampus, fetchSingleCampusAsync } from './campusSlice';
+import { selectSingleCampus, fetchSingleCampusAsync, deleteCampusAsycn } from './campusSlice';
 import { useParams, Link } from "react-router-dom";
 
 const SingleCampus = () => {
@@ -17,6 +17,11 @@ const SingleCampus = () => {
 
     }, [])
 
+    const handleDelete = async (e) => {
+        const id = e.target.value
+        dispatch(deleteCampusAsycn(id))
+    }
+
     return (
         <div>
             <div>
@@ -24,6 +29,8 @@ const SingleCampus = () => {
                 <h3>{address}</h3>
                 <p> {description} </p>
                 <img src={image} style={{width: 200, height:200}} />
+                <br></br>
+                <button value={campus.id} onClick={handleDelete}>DELETE</button>
             </div>
             <h2>Enrolled:</h2>
             {students && students.length ? ( 
