@@ -35,13 +35,12 @@ router.post('/', async (req, res, next) => {
     }
 })
 
-router.delete('/', async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
     try {
-        console.log(req.body)
-        const response = await Student.findByPk(req.body)
-        console.log("HELLOOOOOOOO")
+        const id = req.params.id
+        const response = await Student.findByPk(id)
         await response.destroy()
-        res.send(response)
+        res.redirect('http://localhost:3000/students')
         next()
     } catch (err) {
         console.log(err)

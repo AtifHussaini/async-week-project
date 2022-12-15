@@ -10,6 +10,16 @@ export const fetchSingleStudentAsync = createAsyncThunk("student/fetchOne", asyn
     }
 })
 
+export const deleteStudentAsync = createAsyncThunk("student-delete", async (id) => {
+
+    try {
+        const { data } = await axios.delete(`/api/students/${id}`)
+        return data
+    } catch (err) {
+        console.log(err)
+    }
+})
+
 export const singleStudentSlice = createSlice({
 
     name: "singleStudent",

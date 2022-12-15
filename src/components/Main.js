@@ -4,18 +4,19 @@ import AllStudents from './AllStudents';
 import AllCampuses from "./AllCampuses";
 import SingleCampus from './SingleCampus';
 import SingleStudent from './SingleStudent';
+import Welcome from "./Welcome";
 
 const Main = () => {
 
     return (
         <div>
             <nav>
-                {/* <Link to='/'>Home</Link> */}
+                <Link to='/'>Home</Link>
                 <Link to='/students'>Students</Link>
                 <Link to='/campuses'>Campuses</Link>
             </nav>
             <Routes>
-                {/* <Route path='/' element={<Main />}/> */}
+                <Route path='/' element={<Welcome />}/>
                 <Route path='/students' element={<AllStudents />} />
                 <Route path='/campuses' element={<AllCampuses />} />
                 <Route path='/campuses/:id' element={<SingleCampus />} />
@@ -28,5 +29,4 @@ const Main = () => {
 export default Main;
 
 // QUESTIONS & COMMENTS!
-// 1. Add Route for '/students/:id
-// 2.  Get '/' to work
+// 
