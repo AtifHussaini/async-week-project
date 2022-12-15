@@ -30,7 +30,7 @@ const SingleStudent = () => {
                 <h3>{gpa}</h3>
                 <img src={image} style={{width: 200, height: 300}} />
                 <br></br>
-                <button value={student.id} onClick={handleDelete}>DELETE</button>
+                <Link to="/students"><button value={student.id} onClick={handleDelete}>DELETE</button></Link>
             </div>
         </div>
     );

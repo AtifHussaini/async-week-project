@@ -30,7 +30,7 @@ const SingleCampus = () => {
                 <p> {description} </p>
                 <img src={image} style={{width: 200, height:200}} />
                 <br></br>
-                <button value={campus.id} onClick={handleDelete}>DELETE</button>
+                <Link to="/campuses"><button value={campus.id} onClick={handleDelete}>DELETE</button></Link>
             </div>
             <h2>Enrolled:</h2>
             {students && students.length ? ( 

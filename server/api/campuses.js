@@ -38,7 +38,7 @@ router.delete('/:id', async (req, res, next) => {
         const id = req.params.id
         const response = await Campus.findByPk(id)
         await response.destroy()
-        res.send("Good Job!")
+        res.send(response)
         next();
     } catch (err) {
         console.log(err)
