@@ -26,10 +26,10 @@ const SingleStudent = () => {
        dispatch(fetchSingleStudentAsync(id))
        dispatch(fetchAllCampusesAsync())
 
-    }, [])
+    }, [dispatch])
 
-    const handleDelete = async (e) => {
-        const id = e.target.value
+    const handleDelete = async () => {
+        
         dispatch(deleteStudentAsync(id))
     }
 

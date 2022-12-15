@@ -7,42 +7,48 @@ const runSeed = async () => {
         lastName: 'Hussaini',
         email: 'ahussaini314@gmail.com',
         image: '/atif.JPG',
-        gpa: 3.3
+        gpa: 3.3,
+        campusId: 1
     },
     {
         firstName: 'Zenat',
         lastName: 'Hussaini',
         email: 'zenat.hussaini@my.rfums.org',
         image: '/zenat.jpg',
-        gpa: 1.4
+        gpa: 1.4,
+        campusId: 2
     },
     {
         firstName: 'Michelle',
         lastName: 'Diaz',
         email: 'mariamichelle72@gmail.com',
         image: '/michelle.JPG',
-        gpa: 3.8
+        gpa: 3.8,
+        campusId: 6
     },
     {
         firstName: 'Rumzi',
         lastName: 'Khan',
         email: 'rumzi.khan@gmail.com',
         image: '/rumzi.jpg',
-        gpa: 3.75
+        gpa: 3.75,
+        campusId: 3
     },
     {
         firstName: 'Bushra',
         lastName: 'Hussaini',
         email: 'bhussaini89@yahoo.com',
         image: '/mom.jpg',
-        gpa: 3.9
+        gpa: 3.9,
+        campusId: 4
     },
     {
         firstName: 'Syed',
         lastName: 'Hussaini',
         email: 'shussaini57@yahoo.com',
         image: '/dad.jpg',
-        gpa: 2.7
+        gpa: 2.7,
+        campusId: 5
     }];
 
     const campuses = [{
@@ -85,8 +91,8 @@ const runSeed = async () => {
 
     try { 
         await db.sync({force: true});
-        await Promise.all(students.map(student => Student.create(student)));
         await Promise.all(campuses.map(campus => Campus.create(campus)))
+        await Promise.all(students.map(student => Student.create(student)));
         console.log("Seeding was successful!");
         process.kill(0);
     } catch (error) {
@@ -96,5 +102,3 @@ const runSeed = async () => {
 }
 
 runSeed();
-
-// Is there an ability to add campusId to each of these, versus hard-coding the foreign key in
