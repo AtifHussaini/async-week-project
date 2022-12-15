@@ -56,15 +56,15 @@ const SingleStudent = () => {
             </div>
             <h1>UPDATE STUDENT</h1>
             <form method="update" action={`/students/${id}`} onSubmit={handleSubmit}>
-                <input value={newFirstName} placeholder={firstName} onChange={(e) => setNewFirstName(e.target.value)}></input>
+                <input required value={newFirstName} placeholder={firstName} onChange={(e) => setNewFirstName(e.target.value)}></input>
                 <br></br>
-                <input value={newLastName} placeholder={lastName} onChange={(e) => setNewLastName(e.target.value)}></input>
+                <input required value={newLastName} placeholder={lastName} onChange={(e) => setNewLastName(e.target.value)}></input>
                 <br></br>
-                <input value={newEmail} placeholder={email} onChange={(e) => setNewEmail(e.target.value)}></input>
+                <input required value={newEmail} placeholder={email} onChange={(e) => setNewEmail(e.target.value)}></input>
                 <br></br>
-                <input value={newImage} placeholder={image} onChange={(e) => setNewImage(e.target.value)}></input>
+                <input required value={newImage} placeholder={image} onChange={(e) => setNewImage(e.target.value)}></input>
                 <br></br>
-                <input value={newGpa} placeholder={gpa} onChange={(e) => setNewGpa(e.target.value)}></input>
+                <input required value={newGpa} placeholder={gpa} onChange={(e) => setNewGpa(e.target.value)}></input>
                 <br></br>
                 <select onChange={(e) => setNewOption(e.target.value)}>
                     <option value="">Choose Here</option>
