@@ -34,9 +34,9 @@ const AllStudents = () => {
         dispatch(createStudentAsync({firstName, lastName, email, gpa, option}))
     }
 
-    // const handleClick = () => {
-    //     console.log("Create student - clicked")
-    // }
+    const handleClick = () => {
+        console.log("Create student - clicked")
+    }
 
     return (
         <div>
@@ -65,7 +65,7 @@ const AllStudents = () => {
                         return <option key={campus.id} value={campus.id}>{campus.name}</option>
                     })} 
                 </select>
-                <button type="submit">Create</button>
+                <button type="submit" onClick={handleClick}>Create</button>
             </form>
            </div>
         </div>
