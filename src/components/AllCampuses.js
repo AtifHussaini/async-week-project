@@ -24,8 +24,7 @@ const AllCampuses = () => {
     const [name, setName] = useState("")
     const [address, setAddress] = useState("")
 
-    const handleSubmit = (e) =>{
-        e.preventDefault()
+    const handleSubmit = () => {
         dispatch(createCampusAsync({name, address}))
     }
 

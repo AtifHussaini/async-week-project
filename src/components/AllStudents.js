@@ -28,8 +28,7 @@ const AllStudents = () => {
     const [email, setEmail] = useState("")
     const [gpa, setGpa] = useState("")
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = () => {
         console.log(option)
         dispatch(createStudentAsync({firstName, lastName, email, gpa, option}))
     }
@@ -48,17 +47,17 @@ const AllStudents = () => {
                     <h1>{student.firstName} {student.lastName} attends {student.campus ? (student.campus.name) : ("no universities or institutions")} </h1> 
                     <h3>Email: {student.email}</h3>
                     <h3>GPA: {student.gpa}</h3>
-                    <Link to={`/students/${student.id}`}><img src={student.image} style={{width: 200, height: 300}} /></Link>
+                    <Link to={`/students/${student.id}`}><img src={student.image} style={{width: 200, height: 300}}/></Link>
                 </div>
                 )
            })}
            <div>
             <form method="post" action="/students" onSubmit={handleSubmit}>
                 <h1>ENTER IN A NEW STUDENT</h1>
-                <input name="firstName" type="text" placeholder='First Name' value={firstName} onChange={(e) => setFirstName(e.target.value)}></input>
-                <input name="lastName" type="text" placeholder='Last Name' value={lastName} onChange={(e) => setLastName(e.target.value)}></input>
-                <input name="email" type="text" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)}></input>
-                <input name="gpa" type="number" placeholder='GPA' value={gpa} onChange={(e) => setGpa(e.target.value)}></input>
+                <input required name="firstName" type="text" placeholder='First Name' value={firstName} onChange={(e) => setFirstName(e.target.value)}></input>
+                <input required name="lastName" type="text" placeholder='Last Name' value={lastName} onChange={(e) => setLastName(e.target.value)}></input>
+                <input required name="email" type="text" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                <input required name="gpa" type="number" placeholder='GPA' value={gpa} onChange={(e) => setGpa(e.target.value)}></input>
                 <select onChange={(e) => setOption(e.target.value)}>
                     <option value="">Choose Here</option>
                     {campuses.map(campus => {
