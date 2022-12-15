@@ -1,4 +1,5 @@
 const express = require('express');
+const { reset } = require('nodemon');
 const router = express.Router();
 const { Campus, Student } = require('../db')
 
@@ -40,6 +41,18 @@ router.delete('/:id', async (req, res, next) => {
         await response.destroy()
         res.send(response)
         next();
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+router.put('/:id', async (req, res, next) => {
+    try {
+        const row = await Campus.findByPk(req.params.id)
+        console.log(row)
+        const updatedRow = await row.update(req.body)
+        res.send(updatedRow)
+        next()
     } catch (err) {
         console.log(err)
     }
