@@ -5,6 +5,7 @@ import AllCampuses from "./AllCampuses";
 import SingleCampus from './SingleCampus';
 import SingleStudent from './SingleStudent';
 import Welcome from "./Welcome";
+import ErrorPage from "./ErrorPage";
 
 const Main = () => {
 
@@ -21,6 +22,7 @@ const Main = () => {
                 <Route path='/campuses' element={<AllCampuses />} />
                 <Route path='/campuses/:id' element={<SingleCampus />} />
                 <Route path='/students/:id' element={<SingleStudent />} /> 
+                <Route path='*' element={<ErrorPage />} />
             </Routes>
         </div>
     );
