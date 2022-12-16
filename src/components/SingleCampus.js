@@ -56,13 +56,13 @@ const SingleCampus = () => {
             </div>
             <h1>UPDATE CAMPUS</h1>
             <form method="post" action={`/campuses/${id}`} onSubmit={handleSubmit}>
-                <input required style={{width:250}} value={newName} placeholder={name} onChange={(e) => setNewName(e.target.value)}></input>
+                <input required style={{width:350}} value={newName} placeholder={name} onChange={(e) => setNewName(e.target.value)}></input>
                 <br></br>
-                <input required style={{width:250}} value={newAddress} placeholder={address} onChange={(e) => setNewAddress(e.target.value)}></input>
+                <input required style={{width:350}} value={newAddress} placeholder={address} onChange={(e) => setNewAddress(e.target.value)}></input>
                 <br></br>
                 <textarea style={{width: 350, height: 150, resize: 'none'}} required value={newDescription} placeholder={description} onChange={(e) => setNewDescription(e.target.value)}></textarea>
                 <br></br>
-                <input required value={newImage} placeholder={image} onChange={(e) => setNewImage(e.target.value)}></input>
+                <input required style={{width:350}} value={newImage} placeholder={image} onChange={(e) => setNewImage(e.target.value)}></input>
                 <br></br>
                 <button type="submit" onClick={handleClick}>Update</button>
             </form>
