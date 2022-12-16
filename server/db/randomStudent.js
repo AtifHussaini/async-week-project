@@ -101,7 +101,7 @@ for (let i = 0; i < names.length; i++) {
     firstName: names[i].firstName,
     lastName: names[i].lastName,
     email: "email" + i + "@example.com",
-    image: "https://thispersondoesnotexist.com/image",
+    image: "/anonymousPerson.jpeg",
     gpa: Math.floor(Math.random() * 5),
     campusId: Math.floor(Math.random() * 20) + 1
   };
@@ -109,3 +109,5 @@ for (let i = 0; i < names.length; i++) {
 }
 
 console.log(objects)
+
+// "https://thispersondoesnotexist.com/image"

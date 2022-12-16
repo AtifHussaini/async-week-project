@@ -49,8 +49,8 @@ const AllCampuses = () => {
             <div>
             <form method="post" action="/campuses" onSubmit={handleSubmit}>
                 <h1>ENTER IN A NEW CAMPUS</h1>
-                <input required name="name" type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)}></input>
-                <input required name="address" type="text" placeholder='City, State/Country' value={address} onChange={(e) => setAddress(e.target.value)}></input>
+                <input required style={{width:200}} name="name" type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)}></input>
+                <input required style={{width:200}} name="address" type="text" placeholder='City, State/Country' value={address} onChange={(e) => setAddress(e.target.value)}></input>
                 <button type="submit" onClick={handleClick}>Create</button>
             </form>
            </div>
