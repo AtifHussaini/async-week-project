@@ -36,6 +36,14 @@ const AllCampuses = () => {
         <div>
             <p>Students: {students.length}</p> 
             <p>Campuses: {campuses.length}</p>
+            <div>
+                <form method="post" action="/campuses" onSubmit={handleSubmit}>
+                    <h1>ENTER IN A NEW CAMPUS</h1>
+                    <input required style={{width:200}} name="name" type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)}></input>
+                    <input required style={{width:200}} name="address" type="text" placeholder='City, State/Country' value={address} onChange={(e) => setAddress(e.target.value)}></input>
+                    <button type="submit" onClick={handleClick}>Create</button>
+                </form>
+           </div>
             {campuses.map(campus => {
                     return (
                         <div key={campus.id}>
@@ -46,14 +54,6 @@ const AllCampuses = () => {
                         </div>
                     )
             })}
-            <div>
-            <form method="post" action="/campuses" onSubmit={handleSubmit}>
-                <h1>ENTER IN A NEW CAMPUS</h1>
-                <input required style={{width:200}} name="name" type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)}></input>
-                <input required style={{width:200}} name="address" type="text" placeholder='City, State/Country' value={address} onChange={(e) => setAddress(e.target.value)}></input>
-                <button type="submit" onClick={handleClick}>Create</button>
-            </form>
-           </div>
         </div>
     );
 }
