@@ -9,7 +9,7 @@ import Welcome from "./Welcome";
 const Main = () => {
 
     return (
-        <div>
+        <div id="main">
             <nav>
                 <Link to='/'>Home</Link>
                 <Link to='/students'>Students</Link>
