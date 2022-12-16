@@ -54,10 +54,10 @@ const AllStudents = () => {
            <div>
             <form method="post" action="/students" onSubmit={handleSubmit}>
                 <h1>ENTER IN A NEW STUDENT</h1>
-                <input required name="firstName" type="text" placeholder='First Name' value={firstName} onChange={(e) => setFirstName(e.target.value)}></input>
-                <input required name="lastName" type="text" placeholder='Last Name' value={lastName} onChange={(e) => setLastName(e.target.value)}></input>
-                <input required name="email" type="text" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)}></input>
-                <input required name="gpa" type="number" placeholder='GPA' value={gpa} onChange={(e) => setGpa(e.target.value)}></input>
+                <input required name="firstName" style={{width:150}} type="text" placeholder='First Name' value={firstName} onChange={(e) => setFirstName(e.target.value)}></input>
+                <input required name="lastName" style={{width:150}} type="text" placeholder='Last Name' value={lastName} onChange={(e) => setLastName(e.target.value)}></input>
+                <input required name="email" style={{width:150}} type="text" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                <input required name="gpa" style={{width:150}} type="number" placeholder='GPA (0.00 to 4.00)' min="0" max="4" value={gpa} onChange={(e) => setGpa(e.target.value)}></input>
                 <select onChange={(e) => setOption(e.target.value)}>
                     <option value="">Choose Here</option>
                     {campuses.map(campus => {
