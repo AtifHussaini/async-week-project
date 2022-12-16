@@ -11,9 +11,9 @@ const Main = () => {
     return (
         <div id="main">
             <nav>
-                <Link to='/'>Home</Link>
-                <Link to='/students'>Students</Link>
-                <Link to='/campuses'>Campuses</Link>
+                <Link style={{padding: 10}} to='/'>Home</Link>
+                <Link style={{padding: 10}} to='/students'>Students</Link>
+                <Link style={{padding: 10}} to='/campuses'>Campuses</Link>
             </nav>
             <Routes>
                 <Route path='/' element={<Welcome />}/>
@@ -27,6 +27,3 @@ const Main = () => {
 };
 
 export default Main;
-
-// QUESTIONS & COMMENTS!
-// 
