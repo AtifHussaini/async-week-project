@@ -3,8 +3,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const fetchSingleStudentAsync = createAsyncThunk("student/fetchOne", async (id) => {
     try {
-        const { data } = await axios.get(`/api/students/${id}`)
-        return data
+        const { data } = await axios.get(`/api/students/${id}`);
+        return data;
     } catch (err) {
         console.log(err);
     }
@@ -13,12 +13,12 @@ export const fetchSingleStudentAsync = createAsyncThunk("student/fetchOne", asyn
 export const deleteStudentAsync = createAsyncThunk("student-delete", async (id) => {
 
     try {
-        const { data } = await axios.delete(`/api/students/${id}`)
-        return data
+        const { data } = await axios.delete(`/api/students/${id}`);
+        return data;
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
-})
+});
 
 export const updateStudentAsync = createAsyncThunk("student-update", async ({id, newFirstName, newLastName, newEmail, newImage, newGpa, newOption}) => {
     try {
@@ -29,12 +29,12 @@ export const updateStudentAsync = createAsyncThunk("student-update", async ({id,
             image: newImage,
             gpa: newGpa,
             campusId: newOption
-        })
-        return data
+        });
+        return data;
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
-})
+});
 
 export const singleStudentSlice = createSlice({
 
@@ -60,6 +60,6 @@ export const singleStudentSlice = createSlice({
     }
 });
 
-export const selectSingleStudent = (state) => state.singleStudent
+export const selectSingleStudent = (state) => state.singleStudent;
 
-export default singleStudentSlice.reducer
+export default singleStudentSlice.reducer;

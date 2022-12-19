@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
-import { Routes, Route, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllStudentsAsync, selectAllStudents } from './allStudentsSlice';
@@ -9,28 +9,27 @@ import { createCampusAsync, fetchAllCampusesAsync, selectAllCampuses } from './a
 
 const AllCampuses = () => {
 
-    const dispatch = useDispatch()
-    const students = useSelector(selectAllStudents)
-    const campuses = useSelector(selectAllCampuses)
+    const dispatch = useDispatch();
+    const students = useSelector(selectAllStudents);
+    const campuses = useSelector(selectAllCampuses);
     console.log(campuses)
 
     useEffect(() => {
+        dispatch(fetchAllStudentsAsync());
+        dispatch(fetchAllCampusesAsync());
 
-        dispatch(fetchAllStudentsAsync())
-        dispatch(fetchAllCampusesAsync())
+    }, [dispatch]);
 
-    }, [])
-
-    const [name, setName] = useState("")
-    const [address, setAddress] = useState("")
+    const [name, setName] = useState("");
+    const [address, setAddress] = useState("");
 
     const handleSubmit = () => {
         dispatch(createCampusAsync({name, address}))
-    }
+    };
 
     const handleClick = () =>{
         console.log("Create campus - clicked")
-    }
+    };
 
     return (
         <div>
@@ -56,6 +55,6 @@ const AllCampuses = () => {
             })}
         </div>
     );
-}
+};
 
 export default AllCampuses;

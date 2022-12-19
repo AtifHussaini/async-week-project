@@ -93,7 +93,7 @@ const names = [
   {firstName: "Tessa", lastName: "Jacobs"},
   {firstName: "Margret", lastName: "Friedman"},
   {firstName: "Linda", lastName: "Valenzuela"},
-  {firstName: "Britt", lastName: "Branch"}]
+  {firstName: "Britt", lastName: "Branch"}];
   
 
 for (let i = 0; i < names.length; i++) {
@@ -107,7 +107,3 @@ for (let i = 0; i < names.length; i++) {
   };
   objects.push(object);
 }
-
-console.log(objects)
-
-// "https://thispersondoesnotexist.com/image"

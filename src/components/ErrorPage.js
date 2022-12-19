@@ -7,6 +7,6 @@ const ErrorPage = () => {
             <h3>Click on any of the links above to head back to the site.</h3>
         </div>
     );
-}
+};
 
 export default ErrorPage;

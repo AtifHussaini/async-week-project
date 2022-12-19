@@ -1,6 +1,6 @@
-const Sequelize = require('sequelize')
-const postgresURL = "postgres://localhost:5432/acme_schools_db"
-const db = new Sequelize(postgresURL)
+const Sequelize = require('sequelize');
+const postgresURL = "postgres://localhost:5432/acme_schools_db";
+const db = new Sequelize(postgresURL);
 
 const Student = db.define("student", {
 

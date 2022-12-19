@@ -3,10 +3,10 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const fetchAllCampusesAsync = createAsyncThunk("campuses-fetchAll", async () => {
     try {
-        const { data } = await axios.get('/api/campuses')
+        const { data } = await axios.get('/api/campuses');
         return data;
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 })
 
@@ -17,9 +17,9 @@ export const createCampusAsync = createAsyncThunk("campus-create", async ({name,
             name,
             address
         });
-        return data
+        return data;
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 })
 
@@ -34,15 +34,15 @@ export const allCampusesSlice = createSlice({
 
     extraReducers: (builder) => {
         builder.addCase(fetchAllCampusesAsync.fulfilled, (state, action) => {
-            return action.payload
+            return action.payload;
         });
 
         builder.addCase(createCampusAsync.fulfilled, (state, action) => {
-            return action.payload
+            return action.payload;
         });
     }
 });
 
-export const selectAllCampuses = (state) => state.allCampuses
+export const selectAllCampuses = (state) => state.allCampuses;
 
 export default allCampusesSlice.reducer;

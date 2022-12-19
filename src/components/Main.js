@@ -6,16 +6,13 @@ import SingleCampus from './SingleCampus';
 import SingleStudent from './SingleStudent';
 import Welcome from "./Welcome";
 import ErrorPage from "./ErrorPage";
+import Navbar from "./Navbar";
 
 const Main = () => {
 
     return (
         <div id="main">
-            <nav>
-                <Link style={{padding: 10}} to='/'>Home</Link>
-                <Link style={{padding: 10}} to='/students'>Students</Link>
-                <Link style={{padding: 10}} to='/campuses'>Campuses</Link>
-            </nav>
+            <Navbar />
             <Routes>
                 <Route path='/' element={<Welcome />}/>
                 <Route path='/students' element={<AllStudents />} />

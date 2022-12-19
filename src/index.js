@@ -6,8 +6,8 @@ import { BrowserRouter as Router } from "react-router-dom"
 import { Provider } from "react-redux"
 import store  from "./store";
 
-const container = document.getElementById("root")
-const root = createRoot(container)
+const container = document.getElementById("root");
+const root = createRoot(container);
 
 root.render(
         
@@ -17,6 +17,6 @@ root.render(
                 </Router>
         </Provider>
         
-)
+);
 
-// 1. Do not understand by Router has red underline and why Router is not turning green. It used to.
+// 1. Do not understand why Router/Provider/Main has red underline and why Router is not turning green...

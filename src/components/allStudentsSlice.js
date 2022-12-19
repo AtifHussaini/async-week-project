@@ -3,10 +3,10 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const fetchAllStudentsAsync = createAsyncThunk("students-fetchAll", async () => {
     try {
-        const { data } = await axios.get('/api/students')
-        return data
+        const { data } = await axios.get('/api/students');
+        return data;
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 })
 
@@ -19,10 +19,10 @@ export const createStudentAsync = createAsyncThunk("student-create", async ({fir
             email,
             gpa,
             campusId: option
-        })
+        });
         return data;
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 
 })
@@ -38,17 +38,15 @@ export const allStudentsSlice = createSlice({
 
     extraReducers: (builder) => {
         builder.addCase(fetchAllStudentsAsync.fulfilled, (state, action) => {
-            return action.payload
+            return action.payload;
         });
 
         builder.addCase(createStudentAsync.fulfilled, (state, action) => {
-            return action.payload
+            return action.payload;
         });
     }
 });
 
-export const selectAllStudents = (state) => state.allStudents
+export const selectAllStudents = (state) => state.allStudents;
 
-export default allStudentsSlice.reducer
-
-// 1. What if we did not add the extraReducer/addCase functionality?
+export default allStudentsSlice.reducer;

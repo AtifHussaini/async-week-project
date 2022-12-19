@@ -1,41 +1,38 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-
-import { Routes, Route, Link } from "react-router-dom"
-
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
+
 import { createStudentAsync, fetchAllStudentsAsync, selectAllStudents } from './allStudentsSlice';
 import { fetchAllCampusesAsync, selectAllCampuses } from './allCampusesSlice';
 
 const AllStudents = () => {
 
-    const dispatch = useDispatch()
-    const students = useSelector(selectAllStudents)
-    const campuses = useSelector(selectAllCampuses)
-    console.log(students)
+    const dispatch = useDispatch();
+    const students = useSelector(selectAllStudents);
+    const campuses = useSelector(selectAllCampuses);
 
-    const [option, setOption] = useState(0)
+    const [option, setOption] = useState(0);
 
     useEffect(() => {
 
-        dispatch(fetchAllStudentsAsync())
-        dispatch(fetchAllCampusesAsync())
+        dispatch(fetchAllStudentsAsync());
+        dispatch(fetchAllCampusesAsync());
 
-    }, [])
+    }, [dispatch]);
 
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [email, setEmail] = useState("")
-    const [gpa, setGpa] = useState("")
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [gpa, setGpa] = useState("");
 
     const handleSubmit = () => {
-        console.log(option)
-        dispatch(createStudentAsync({firstName, lastName, email, gpa, option}))
-    }
+        dispatch(createStudentAsync({firstName, lastName, email, gpa, option}));
+    };
 
     const handleClick = () => {
-        console.log("Create student - clicked")
-    }
+        console.log("Create student - clicked");
+    };
 
     return (
         <div>
@@ -66,12 +63,9 @@ const AllStudents = () => {
                     <Link to={`/students/${student.id}`}><img src={student.image} style={{width: 200, height: 300}}/></Link>
                 </div>
                 )
-           })}
+           })};
         </div>
     );
 }
 
 export default AllStudents;
-
-// QUESTIONS & COMMENTS
-// 1. Fix GPA field to only accept values from 0-4, 2 digits max.

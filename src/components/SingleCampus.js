@@ -6,43 +6,39 @@ import { useParams, Link } from "react-router-dom";
 
 const SingleCampus = () => {
 
-    const { id } = useParams()
-    const dispatch = useDispatch()
+    const { id } = useParams();
+    const dispatch = useDispatch();
     
-    const campus = useSelector(selectSingleCampus)
-    const { students, name, address, image, description } = campus
+    const campus = useSelector(selectSingleCampus);
+    const { students, name, address, image, description } = campus;
 
-    const [newName, setNewName] = useState("")
-    const [newAddress, setNewAddress] = useState("")
-    const [newDescription, setNewDescription] = useState("")
-    const [newImage, setNewImage] = useState("")
+    const [newName, setNewName] = useState("");
+    const [newAddress, setNewAddress] = useState("");
+    const [newDescription, setNewDescription] = useState("");
+    const [newImage, setNewImage] = useState("");
 
     useEffect(() => {
         dispatch(fetchSingleCampusAsync(id))
-    }, [])
+    }, [dispatch]);
 
     const handleDelete = async (e) => {
-        const id = e.target.value
-        dispatch(deleteCampusAsync(id))
+        const id = e.target.value;
+        dispatch(deleteCampusAsync(id));
     }
 
     const handleSubmit = async () => {
-        // e.preventDefault()
-        dispatch(updateCampusAsync({ id, newName, newAddress, newDescription, newImage}))
-    }
+        dispatch(updateCampusAsync({ id, newName, newAddress, newDescription, newImage}));
+    };
 
     const handleClick = () => {
-        // e.preventDefault()
-        console.log("button clicked")
-    }
-    console.log(students)
+        console.log("button clicked");
+    };
 
     const handleUnregister = async (e) => {
-
-        const studentId = e.target.value
-        await axios.put(`/api/students/${studentId}`)
-        window.location.reload(true)
-    }
+        const studentId = e.target.value;
+        await axios.put(`/api/students/${studentId}`);
+        window.location.reload(true);
+    };
 
     return (
         <div>
@@ -74,7 +70,7 @@ const SingleCampus = () => {
                             <button value={student.id} onClick={handleUnregister}>Unregister</button>
                         </div>
                 })) : (<h3>{name} does not have any enrolled students at the moment!</h3>)
-            }
+            };
         </div>
         );
 }

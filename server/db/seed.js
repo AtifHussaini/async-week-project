@@ -868,12 +868,12 @@ const runSeed = async () => {
 
     try { 
         await db.sync({force: true});
-        await Promise.all(campuses.map(campus => Campus.create(campus)))
+        await Promise.all(campuses.map(campus => Campus.create(campus)));
         await Promise.all(students.map(student => Student.create(student)));
         console.log("Seeding was successful!");
         process.kill(0);
     } catch (error) {
-        console.log("There was a problem seeding the database", error)
+        console.log("There was a problem seeding the database", error);
         process.kill(0);
     }
 }

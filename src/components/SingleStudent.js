@@ -1,7 +1,8 @@
 import React, { useEffect , useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSingleStudent, fetchSingleStudentAsync, deleteStudentAsync, updateStudentAsync } from './studentSlice'
 import { useParams, Link } from "react-router-dom"
+
+import { selectSingleStudent, fetchSingleStudentAsync, deleteStudentAsync, updateStudentAsync } from './studentSlice'
 import { fetchAllCampusesAsync, selectAllCampuses } from './allCampusesSlice';
 
 const SingleStudent = () => {
@@ -22,22 +23,17 @@ const SingleStudent = () => {
     const [newOption, setNewOption] = useState("")
 
     useEffect(() => {
-       
        dispatch(fetchSingleStudentAsync(id))
        dispatch(fetchAllCampusesAsync())
 
     }, [dispatch])
 
     const handleDelete = async () => {
-        
         dispatch(deleteStudentAsync(id))
     }
 
     const handleSubmit = async () => {
-        // e.preventDefault()
-        console.log(newOption)
         dispatch(updateStudentAsync({id, newFirstName, newLastName, newEmail, newImage, newGpa, newOption}))
-
     }
 
     const handleClick = () => {
