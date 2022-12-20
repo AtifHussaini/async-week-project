@@ -1,28 +1,32 @@
-import React from 'react';
-import { Routes, Route, Link } from "react-router-dom"
-import AllStudents from './AllStudents';
-import AllCampuses from "./AllCampuses";
-import SingleCampus from './SingleCampus';
-import SingleStudent from './SingleStudent';
-import Welcome from "./Welcome";
-import ErrorPage from "./ErrorPage";
-import Navbar from "./Navbar";
+import React, { useEffect } from 'react';
+import axios from "axios";
+import Team1 from "./Team1";
+import Team2 from "./Team2";
+import { useDispatch, useSelector } from "react-redux";
+
+import { selectAllPlayers,fetchAllPlayersAsync } from "./playersSlice";
 
 const Main = () => {
 
+    const dispatch = useDispatch();
+    const players = useSelector(selectAllPlayers)
+
+    useEffect (() => {
+
+       dispatch(fetchAllPlayersAsync())
+       
+
+    }, []);
+    console.log(players)
+    
     return (
-        <div id="main">
-            <Navbar />
-            <Routes>
-                <Route path='/' element={<Welcome />}/>
-                <Route path='/students' element={<AllStudents />} />
-                <Route path='/campuses' element={<AllCampuses />} />
-                <Route path='/campuses/:id' element={<SingleCampus />} />
-                <Route path='/students/:id' element={<SingleStudent />} /> 
-                <Route path='*' element={<ErrorPage />} />
-            </Routes>
+        <div>
+            <Team1 />
+            <Team2 />
+            {players.map(player => {
+               return <h1>{player.firstName}</h1>})}
         </div>
     );
-};
+}
 
 export default Main;

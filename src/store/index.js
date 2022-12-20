@@ -1,17 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import allCampusesReducer from "../components/allCampusesSlice";
-import allStudentsReducer from "../components/allStudentsSlice";
-import singleCampusReducer from "../components/campusSlice";
-import singleStudentReducer from "../components/studentSlice";
-
+import allPlayersReducer from "../components/playersSlice";
 
 const store = configureStore({
 
   reducer: {
-    allStudents: allStudentsReducer,
-    allCampuses: allCampusesReducer,
-    singleCampus: singleCampusReducer,
-    singleStudent: singleStudentReducer
+    allPlayers: allPlayersReducer
   }
 });
 
