@@ -21,6 +21,11 @@ const Player = db.define("player", {
     ranking: {
         type: Sequelize.DataTypes.STRING,
         allowNull: false
+    },
+    image: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: true,
+        defaultValue: "/basketballPlayer.png"
     }
 })
 
