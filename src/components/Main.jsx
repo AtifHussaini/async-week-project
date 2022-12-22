@@ -5,12 +5,12 @@ import Battle from "./Battle";
 
 const Main = () => {
   return (
-    <div>
-      <div>
+    <div id="main">
+      <div id="teams">
         <Team1 />
+        <Battle />
         <Team2 />
       </div>
-      <Battle />
     </div>
   );
 };

@@ -24,12 +24,12 @@ const Team1 = () => {
   };
 
   return (
-    <div>
+    <div id="team1">
       <h1>Team 1</h1>
       {players.map((player) => {
         return (
           <div key={player.id}>
-            <img src={player.image} style={{ width: 200, height: 200 }} />
+            <img src={player.image} style={{ width: 150, height: 100 }} />
             <h4>
               {player.firstName} {player.lastName} has a ranking of{" "}
               {player.ranking}
@@ -38,7 +38,7 @@ const Team1 = () => {
         );
       })}
       <h2>Overall ranking: </h2>
-      <h2 id="team1Score">{score1}</h2>
+      <h2>{score1}</h2>
       <button onClick={handleClick}>Add Team</button>
     </div>
   );

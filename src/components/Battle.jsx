@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { selectScore1, selectScore2 } from "../components/scoreSlice";
+import { useSelector } from "react-redux";
 
-const Battle = ({ score1, score2 }) => {
+const Battle = () => {
+  const score1 = useSelector(selectScore1);
+  const score2 = useSelector(selectScore2);
+
   const [result, setResult] = useState("");
 
   const handleClick = () => {
@@ -15,7 +20,7 @@ const Battle = ({ score1, score2 }) => {
 
   return (
     <div id="battle">
-      <button onClick={handleClick}>Battle</button>
+      <button id="button" onClick={handleClick}>Tip-Off</button>
       <h1>{result}</h1>
     </div>
   );
