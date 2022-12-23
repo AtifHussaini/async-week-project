@@ -1,7 +1,9 @@
 #main {
     display: flex;
     flex-direction: row;
-
+    background-image: url("/basketballCourt.jpeg");
+    background-size: 100%;
+    background-image: no-repeat;
 }
 
 #teams {

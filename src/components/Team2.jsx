@@ -26,7 +26,7 @@ const Team2 = () => {
 
     return (
         <div id="team2">
-            <h1>Team 2</h1>
+            <h1>TEAM 2</h1>
             {players.map(player => {
                 return (
                     <div key={player.id}>
