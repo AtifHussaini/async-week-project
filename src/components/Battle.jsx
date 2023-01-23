@@ -20,6 +20,7 @@ const Battle = () => {
 
   return (
     <div id="battle">
+      <audio controls autoPlay loop><source src="NBA_Theme.mp3" type="audio/mp3"></source></audio>
       <button id="button" onClick={handleClick}>Tip-Off</button>
       <h1>{result}</h1>
     </div>
