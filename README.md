@@ -1,4 +1,4 @@
-# Junior Phase Final Project
+# NBA JAM Vol. 1
 
 ## Getting started
 
