@@ -11,7 +11,7 @@ const Main = () => {
       <div style={{flexDirection:"column"}}>
         <h1 className="title">THE ULTIMATE NBA WEBSITE</h1>
       </div>
-      <button class="button" variant="contained" >LET'S PLAY!</button>
+      {/* <button class="button" variant="contained" >LET'S PLAY!</button> */}
       <div>
         <AllPlayers />
         <Team1 />
