@@ -12,13 +12,15 @@ const Main = () => {
         <h1 className="title">THE ULTIMATE NBA WEBSITE</h1>
       </div>
       {/* <button class="button" variant="contained" >LET'S PLAY!</button> */}
-      <div>
-        <AllPlayers />
+      <div style={{display: 'flex'}}>
         <Team1 />
         <br></br>
         <Battle />
         <br></br>
         <Team2 />
+      </div>
+      <div>
+        <AllPlayers />
       </div>
     </div>
   );
